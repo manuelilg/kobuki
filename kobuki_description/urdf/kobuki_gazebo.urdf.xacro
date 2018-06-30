@@ -2,9 +2,58 @@
 
 <robot name="kobuki_sim" xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="kobuki_sim">
-	  <gazebo reference="wheel_left_link">
-	    <mu1>1.0</mu1>
-	    <mu2>1.0</mu2>
+
+<!--      <gazebo reference="spring_wheel_left_joint">
+        <dynamics>
+          <spring_reference>${spring_force_lower_limit / spring_stiffness}</spring_reference>
+          <spring_stiffness>${spring_stiffness}</spring_stiffness>
+        </dynamics>
+      </gazebo>
+
+      <gazebo reference="spring_wheel_right_joint">
+        <dynamics>
+          <spring_reference>${spring_force_lower_limit / spring_stiffness}</spring_reference>
+          <spring_stiffness>${spring_stiffness}</spring_stiffness>
+        </dynamics>
+      </gazebo>-->
+
+<!--      <gazebo reference="spring_wheel_left_joint">
+        <physics>
+          <ode>
+            <implicit_spring_damper>true</implicit_spring_damper>
+          </ode>
+        </physics>
+      </gazebo>
+
+      <gazebo reference="spring_wheel_right_joint">
+        <physics>
+          <ode>
+            <implicit_spring_damper>true</implicit_spring_damper>
+          </ode>
+        </physics>
+      </gazebo>-->
+
+      <gazebo reference="wheel_left_link">
+        <mu1>4.0</mu1>
+        <mu2>4.0</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.0</maxVel>
+      </gazebo>
+
+      <gazebo reference="wheel_right_link">
+        <mu1>4.0</mu1>
+        <mu2>4.0</mu2>
+        <kp>1000000.0</kp>
+        <kd>100.0</kd>
+        <minDepth>0.001</minDepth>
+        <maxVel>0.0</maxVel>
+      </gazebo>
+
+<!--	  <gazebo reference="wheel_left_link">
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
 	    <kp>1000000.0</kp>
 	    <kd>100.0</kd>
 	    <minDepth>0.001</minDepth>
@@ -12,13 +61,13 @@
 	  </gazebo>
 
 	  <gazebo reference="wheel_right_link">
-	    <mu1>1.0</mu1>
-	    <mu2>1.0</mu2>
+        <mu1>2.0</mu1>
+        <mu2>2.0</mu2>
 	    <kp>1000000.0</kp>
 	    <kd>100.0</kd>
 	    <minDepth>0.001</minDepth>
 	    <maxVel>1.0</maxVel>
-	  </gazebo>
+      </gazebo>-->
 
 	  <gazebo reference="caster_front_link">
 	    <mu1>0.0</mu1>
@@ -181,7 +230,7 @@
 	      <cliff_sensor_left_name>cliff_sensor_left</cliff_sensor_left_name>
 	      <cliff_sensor_center_name>cliff_sensor_front</cliff_sensor_center_name>
 	      <cliff_sensor_right_name>cliff_sensor_right</cliff_sensor_right_name>
-	      <cliff_detection_threshold>0.04</cliff_detection_threshold>
+          <cliff_detection_threshold>0.05</cliff_detection_threshold>
 	      <bumper_name>bumpers</bumper_name>
         <imu_name>imu</imu_name>
 	    </plugin>
