@@ -26,10 +26,10 @@
 
   <run_depend>urdf</run_depend>
   <run_depend>xacro</run_depend>
-  <run_depend>gazebo_ros</run_depend>
+<!--  <run_depend>gazebo_ros</run_depend>
 
   <export>
     <gazebo_ros gazebo_model_path="${prefix}/.." />
-  </export>
+  </export>-->
 
 </package>
